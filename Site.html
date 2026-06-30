@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Littleover Community School | Sustainability</title>
+    <style>
+        /* Base Reset & Core Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #333333;
+            background-color: #ffffff;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* 1. Top Utility Navigation Bar */
+        .utility-bar {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #6c757d;
+        }
+
+        .utility-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .utility-links a {
+            color: #6c757d;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .utility-links a:hover {
+            color: #c90a15;
+        }
+
+        .utility-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .utility-right a {
+            color: #6c757d;
+            text-decoration: none;
+        }
+
+        .utility-right a:hover {
+            color: #c90a15;
+        }
+
+        .lang-select {
+            border: 1px solid #ced4da;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: #fff;
+        }
+
+        /* 2. Main Institutional Header & Logo */
+        .main-header {
+            padding: 15px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .logo-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            width: 100%;
+        }
+
+        .lcs-logo-img {
+            height: 90px;
+            width: auto;
+            object-fit: contain;
+            flex-shrink: 0;
+            display: block;
+        }
+
+        .main-nav {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .main-nav li a {
+            color: #212529;
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 4px;
+            transition: color 0.2s;
+        }
+
+        .main-nav li a:hover {
+            color: #c90a15;
+        }
+
+        .main-nav li.active a {
+            color: #000000;
+        }
+
+        .main-nav li.active a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background-color: #c90a15;
+            border-radius: 50%;
+        }
+
+        /* Right Header Action Menu */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-icon {
+            font-size: 18px;
+            color: #495057;
+            cursor: pointer;
+        }
+
+        .hamburger-menu {
+            width: 50px;
+            height: 50px;
+            background-color: #4a6b82;
+            border-radius: 50% 20% 50% 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-decoration: none;
+            /* Prevents line styling issues */
+        }
+
+        /* Keeps your lines looking clean inside the link anchor */
+        .hamburger-lines {
+            width: 20px;
+            height: 2px;
+            background-color: white;
+            position: relative;
+            display: block;
+        }
+
+        .hamburger-lines::before,
+        .hamburger-lines::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background-color: white;
+            left: 0;
+        }
+
+        .hamburger-lines::before {
+            top: -6px;
+        }
+
+        .hamburger-lines::after {
+            top: 6px;
+        }
+
+        /* 3. Hero Section with Asymmetrical Curved Image Wrap */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            padding: 40px 0 40px 5%;
+            overflow: hidden;
+            position: relative;
+            background: #fff;
+            min-height: 520px;
+        }
+
+        .hero-left {
+            width: 45%;
+            padding-right: 30px;
+            z-index: 2;
+        }
+
+        .welcome-tag {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #495057;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .welcome-tag::before {
+            content: '';
+            display: inline-block;
+            width: 2px;
+            height: 14px;
+            background-color: #c90a15;
+        }
+
+        .hero-left h2 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 52px;
+            color: #1a1a1a;
+            line-height: 1.15;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .hero-left .tagline {
+            font-size: 18px;
+            color: #6c757d;
+            margin-bottom: 35px;
+        }
+
+        .btn-discover {
+            background-color: #2acb15;
+            color: #ffffff;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            transition: background 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Curved Image Mask */
+        .hero-right-curve-wrapper {
+            width: 55%;
+            position: relative;
+            height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .red-border-curve {
+            width: 105%;
+            height: 100%;
+            background-color: #c90a15;
+            border-top-left-radius: 240px;
+            border-bottom-left-radius: 240px;
+            padding-left: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .image-mask {
+            width: 100%;
+            height: 100%;
+            border-top-left-radius: 230px;
+            border-bottom-left-radius: 230px;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+                url('https://images.unsplash.com/photo-1526951521990-620dc14c214b?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* 4. Information Content Blocks */
+        .content-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .section-anchor {
+            scroll-margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .info-block h3 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 32px;
+            color: #1a1a1a;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .info-block p {
+            color: #4a5568;
+            font-size: 16px;
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .poster-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            background-color: #f8f9fa;
+            border-radius: 16px;
+            padding: 30px;
+            border-top: 4px solid #c90a15;
+        }
+
+        .stat-card.yellow-variant {
+            background-color: #fffbeb;
+            border-top-color: #d97706;
+        }
+
+        .stat-card h4 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .highlight-text {
+            font-size: 28px;
+            font-weight: 700;
+            color: #c90a15;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 14px;
+            border-top: 5px solid #c90a15;
+        }
+
+        @media (max-width: 992px) {
+            .hero-section {
+                flex-direction: column;
+                padding: 40px 20px;
+            }
+
+            .hero-left {
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .hero-left h2 {
+                font-size: 38px;
+            }
+
+            .hero-right-curve-wrapper {
+                width: 100%;
+                height: 320px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="utility-bar">
+        <div class="utility-links">
+            <a href="https://www.littleover.derby.sch.uk/my-lcs"><strong>MyLCS</strong></a>
+            <a href="https://app.parentpay.com/public/client/security/v2/#/login">ParentPay</a>
+            <a href="https://www.go4schools.com/">Go4Schools</a>
+        </div>
+        <div class="utility-right">
+            <a href="https://www.littleover.derby.sch.uk/sport-centre">Sports Facilities</a>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="logo-nav-container">
+            <a href="Littleover Community School _ Where we learn, care and succeed together.html "><img src="Logo_Green.png" alt="Littleover Community School Logo" class="lcs-logo-img"></a>
+
+            <ul class="main-nav">
+                <li class="active"><a href="https://www.littleover.derby.sch.uk/">Home</a></li>
+                <li><a href="Welcome.html">Welcome to LCS</a></li>
+                <li><a href="https://www.littleover.derby.sch.uk/parents">Parents</a></li>
+                <li><a href="https://www.littleover.derby.sch.uk/sixth-form">Sixth Form</a></li>
+                <li><a href="https://www.littleover.derby.sch.uk/information">Infomation</a></li>
+                <li><a href="https://www.littleover.derby.sch.uk/information/safeguarding">Safeguarding</a></li>
+                <li><a href="https://www.littleover.derby.sch.uk/careers">Work at LCS</a></li>
+                <li><a href="https://www.littleover.derby.sch.uk/contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="header-actions">
+            <a href="https://www.littleover.derby.sch.uk/" target="_blank" class="search-link">&#128269;</a>
+
+            <a href="https://www.littleover.derby.sch.uk/" target="_blank" class="hamburger-menu">
+                <div class="hamburger-lines"></div>
+            </a>
+        </div>
+    </header>
+
+    <section class="hero-section" id="home">
+        <div class="hero-left">
+            <div class="welcome-tag">Welcome to Sustainability</div>
+            <h2>Littleover<br>Community<br>School</h2>
+            <p class="tagline">Where we learn, care and succeed together</p>
+            <a href="#litter-analysis" class="btn-discover">Discover LCS Green &rarr;</a>
+        </div>
+
+        <div class="hero-right-curve-wrapper">
+            <div class="red-border-curve">
+                <div class="image-mask"></div>
+            </div>
+        </div>
+    </section>
+
+    <main class="content-container">
+
+        <div class="info-grid">
+            <div class="info-block section-anchor" id="litter-analysis">
+                <h3>How Much Litter Is There?</h3>
+                <p>Litter is a big problem in schools and across the UK. Every day, more than two million pieces of
+                    litter are dropped in the UK. Also, plastic makes up over 70% of all litter, which is very harmful
+                    to the environment.</p>
+                <p>In schools, each student can create 20–45kg of waste every year, which adds up to millions of
+                    kilograms across the country. This shows that even small actions, like dropping wrappers, can become
+                    a huge problem.</p>
+                <p>At Littleover Community School, some benches are even made from recycled plastic, which proves how
+                    much waste is produced but also how it can be reused in a better way.</p>
+            </div>
+
+            <div class="info-block section-anchor" id="prevention">
+                <h3>How Can We Stop Littering?</h3>
+                <p>There are many simple ways to stop littering in our school. Firstly, students should always use bins
+                    and never drop rubbish on the ground. More bins around the school could also help, so people don’t
+                    have to walk far to throw things away.</p>
+                <p>Another idea is to have posters or assemblies to remind students why littering is bad. Recycling is
+                    also very important, because it can turn waste into useful things, like the plastic benches in
+                    school.</p>
+                <p>If everyone takes responsibility and works together, we can keep Littleover Community School clean
+                    and make a positive difference to the environment.</p>
+            </div>
+        </div>
+
+        <div class="poster-cards">
+            <div class="stat-card">
+                <h4>Is This Our School?</h4>
+                <span class="highlight-text">450 Plastic Bottles</span>
+                <p>Purchased daily by students, yet currently only 75% end up disposed of correctly. Let's work together
+                    to make it 100%.</p>
+            </div>
+            <div class="stat-card yellow-variant">
+                <h4>Your Trash Has a Destination</h4>
+                <span class="highlight-text" style="color: #d97706;">100% Diverted</span>
+                <p>All items placed into our recycling system successfully avoid landfills. Your choices directly
+                    protect our shared spaces.</p>
+            </div>
+            <div class="stat-card">
+                <h4>Notice the New Bins?</h4>
+                <span class="highlight-text" style="color: #4a6b82;">Please Use Them</span>
+                <p>New recycling collection points are available campus-wide to ensure responsible disposal is quick and
+                    simple.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer id="contact">
+        <p><strong>Littleover Community School</strong> &bull; Pastures Hill, Littleover, Derby, DE23 4BZ</p>
+        <p style="margin-top: 10px; font-size: 12px; opacity: 0.6;">&copy; 2026 Littleover Community School. Sustainable
+            Initiatives Hub.</p>
+    </footer>
+
+</body>
+
+</html>
